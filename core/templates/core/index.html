@@ -6,7 +6,7 @@
 
 </charset="utf-8">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="../bootstrap.css">
+<link rel="stylesheet" href="{{STATIC_URL}}../bootstrap.css">
 
 <body>
 
@@ -36,7 +36,7 @@
             {% if user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
                     <h5 id="helloUser">Hello, {{ user.first_name }}. &nbsp</h5>
-                    <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
+                    <form method="post" action="{% url 'django.contrib.auth.views.logout' %}" id="logoutButt">
                         <input type="submit" class="btn btn-default navbar-btn" value="Logout"/>
                     </form>
                 </ul>
