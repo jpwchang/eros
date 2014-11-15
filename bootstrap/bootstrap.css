@@ -1,8 +1,7 @@
  #homeTitle, .rating, .of5 {
  display: inline;
  }
--.homeProfSubj {
-+.homeSubj {
+.homeSubj {
  margin-top: .5em;
  margin-left: 2em;
  text-indent: 0;
@@ -51,6 +50,9 @@
  }
  .homeTitle small {
  color: #000;
+ }
+  #helloUser, #logoutButt {
+ display: inline;
  }
  #addButton {
  margin-left: auto;
