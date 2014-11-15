@@ -97,7 +97,7 @@ def submitReview(request, course_id):
 	except:
 		return HttpResponse('Oops, that course does not exist')
 
-def subjectView(request, subject):
+def subjectCheck(request, subject):
 	 
 	if subject in [x[0] for x in Course.SUBJECTS]:
 		return HttpResponseRedirect('/viewsubject/'+subject)
@@ -105,5 +105,15 @@ def subjectView(request, subject):
 		return HttpResponseRedirect('/')
 
 def viewSubject(request, subject):
-	return HttpResponse("Wohoo!")
+	fullName = Course.SUBJECTS[[x[0] for x in Course.SUBJECTS].index(subject)][1]
 
+        subjectCourses = Course.objects.filter(courseID__startswith=subject)
+	courseData = [(c, c.avg_review()) for c in subjectCourses]
+
+	con = RequestContext(request, 
+		{'subject': fullName,
+	 	 'courses': courseData,
+		}
+		)
+	
+	return render(request, 'core/subjectlisttemplate.html', con)
