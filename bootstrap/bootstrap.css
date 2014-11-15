@@ -48,9 +48,11 @@ background-color: #eee;
 input[type="submit"] {
 font-family:sans-serif;
 background-color: #337ab7;
+color: white;
 }
 button[type="submit"] {
 background-color: #337ab7;
+color: white;
 }
 .homeTitle small {
 color: #000;
