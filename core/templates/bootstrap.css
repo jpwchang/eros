@@ -50,3 +50,6 @@ border-bottom: 1px solid #eee;
 padding-top: 10px;
 padding-bottom: 10px;
 }
+input[type="submit"] {
+font-family:sans-serif;
+}
