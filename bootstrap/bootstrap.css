@@ -54,3 +54,8 @@ color: #000;
 #helloUser, #logoutButt {
 display: inline;
 }
+#addButton {
+margin-left: auto;
+margin-right: auto;
+}
+
