@@ -2,3 +2,18 @@ h1 {
 color: #0A8BEC;
 text-align: center;
 }
+#homeTitle, .rating {
+display: inline;
+}
+.homeProfSubj {
+margin-top: .5em;
+margin-left: 2em;
+text-indent: 0;
+font-size: 110%;
+}
+.topReview {
+margin-top: 1.5em;
+}
+#topCourses {
+margin-top: 20px;
+}
