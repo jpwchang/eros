@@ -11,9 +11,9 @@ class Course(models.Model):
        total = 0
        numReviews = 0
        for x in Review.objects.get(course__exact=self):
-          total += rating
+          total += x.rating
           numReviews += 1
-       return average/numReviews
+       return total/numReviews
 
 class Review(models.Model):
     author = models.ForeignKey(User)

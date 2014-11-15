@@ -1,11 +1,98 @@
 <html>
-	<head></head>
-	<body>
-		testing...
-		{% if text %}
-			<p>{{ text }}</p>
-		{% else %}
-			<p>Did not receive context data!! :'(</p>
-		{% endif %}
-	</body>
-</html>
+
+<head>
+
+<title>EROS</title>
+
+</charset="utf-8">
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../bootstrap.css">
+
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+   		<div class="container-fluid">
+    	<!-- Brand and toggle get grouped for better mobile display -->
+    	<div class="navbar-header">
+        	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            	<span class="sr-only">Toggle navigation</span>
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+            	<span class="icon-bar"></span>
+        	</button>
+        	<a class="navbar-brand" href="#">EROS</a>
+    	</div>
+
+    	<!-- NAV BAR -->
+    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        	<form  method="post" action=
+            "" class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search..." name="entry">
+                </div>
+                <input type="submit" class="btn btn-default glyphicon glyphicon-search" value="Go!"/>
+            </form>
+        	
+            {% if request.user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <h5 id="helloUser">Hello, {{ user.first_name }}. &nbsp</h5>
+                    <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
+                        <input type="submit" class="btn btn-default navbar-btn" value="Logout"/>
+                    </form>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                	<a href="/accounts/login"><button type="submit" class="btn btn-default navbar-btn">Login</button></a>
+            	</ul>
+            {% endif %}
+    	</div><!-- /.navbar-collapse -->
+  		</div><!-- /.container-fluid -->
+		</nav>
+
+
+    <div>
+        <div class="col-xs-12 col-sm-3">
+            <h3>Course Subjects</h3>
+            <div class="list-group">
+                <!-- i have no clue if this syntax works agh -->
+                <!--{% for subject in subject_list %}
+                    <a href="{{ subject.get_absolute_url }}">
+                        {{ subject }}
+                    {% endfor %}
+                    </a>-->
+                <a href="#" class="list-group-item">Anthropology</a>
+                <a href="#" class="list-group-item">Art</a>
+                <a href="#" class="list-group-item">Biology</a>
+                <a href="#" class="list-group-item">Chemistry</a>
+                <a href="#" class="list-group-item">Linguistics/Cognitive Science</a>
+                <a href="#" class="list-group-item">Computer Science</a>
+                <a href="#" class="list-group-item">Engineering</a>
+                <a href="#" class="list-group-item">Environmental Analysis</a>
+                <a href="#" class="list-group-item">History</a>
+                <a href="#" class="list-group-item">Math</a>
+                <a href="#" class="list-group-item">Philosophy</a>
+                <a href="#" class="list-group-item">Physics</a>
+                <a href="#" class="list-group-item">Psychology</a>
+                <a href="#" class="list-group-item">Religious Stuides</a>
+         </div>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <h2 id="topCourses">Top Rated Courses</h2>
+            <div class="topReview">
+                <a href="#"><h4 id="homeTitle">COURSE TITLE &nbsp</h4></a><h4 class="rating">4.5</h4><h5 class="of5">/5</h5>
+                <p class="homeProfSubj">Prof 1, Prof 2, Prof 3... <br> Subject</p>
+            </div>
+            <div class="topReview">
+                <a href="#"><h4 id="homeTitle">COURSE TITLE &nbsp</h4></a><h4 class="rating">4.5</h4><h5 class="of5">/5</h5>
+                <p class="homeProfSubj">Prof 1, Prof 2, Prof 3... <br> Subject</p>
+            </div>
+        </div>
+    </div>	
+
+
+<!-- look at that Javascript -->
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>

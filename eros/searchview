@@ -1,0 +1,9 @@
+from django.template import Context, Template
+
+def search(request):
+
+   entry = request.POST['entry']
+
+   c =  Context({'search':entry})
+
+   render(get_template("/home/eros/eros/core/templates/core/searchtemplate.html"), c)

@@ -3,10 +3,10 @@
 <head><title>Search results</title></head>
 
 <body>
-<h1> Search results for {{search parameter}} </h1>
+<h1> Search results for {{search}} </h1>
 
-{% for course in course_list %}
-search_results = Entry.objects.filter(name__icontains="{{search parameter}}")
+{% for course in Course.objects.all() %}
+search_results = course.review_set.filter(name__icontains="{{search}}")
 sorted_results = search_results.order_by('review')
 print(sorted_results)
 {% endfor %}
