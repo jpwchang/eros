@@ -2,10 +2,24 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
+class Course(models.Model):
+    courseID = models.CharField(max_length=8)
+    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=100)
+
+    def avg_review(self):
+       total = 0
+       numReviews = 0
+       for x in Review.objects.get(course__exact=self):
+          total += rating
+          numReviews += 1
+       return average/numReviews
+
 class Review(models.Model):
     author = models.ForeignKey(User)
     date = models.DateField(auto_now=True)
-    text = models.CharField(max_length=10000)
+    text = models.TextField()
+    course = models.ForeignKey(Course)
     RATING_CHOICES = (
     (0.0, "0"),
     (0.5, "0.5"),
@@ -20,16 +34,14 @@ class Review(models.Model):
     (5.0, "5"))
     rating = models.FloatField(choices=RATING_CHOICES)
 
-class Course(models.Model):
-    name = models.CharField(max_length=100)
-    subject = models.CharField(max_length=100)
-    review = models.ForeignKey(Review)
+
 
 class Professor(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=50)
     subject = models.CharField(max_length=100)
-    course = models.ForeignKey(Course)
+    courses = models.ManyToManyField(Course)
 
-
-
+    def addCourse(self, course):
+       self.courses.add(course)
+       self.save()

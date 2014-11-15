@@ -1,0 +1,13 @@
+<html>
+
+<head><title>Search results</title></head>
+
+<body>
+<h1> Search results for {{search parameter}} </h1>
+
+{% for course in course_list %}
+search_results = Entry.objects.filter(name__icontains="{{search parameter}}")
+sorted_results = search_results.order_by('review')
+print(sorted_results)
+{% endfor %}
+</body>

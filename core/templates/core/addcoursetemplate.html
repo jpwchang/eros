@@ -4,7 +4,11 @@
 
 <body>
 <h1> Add Course </h1>
-<form method="post"> <--! add action to redirect to add review page -->
+<form method="post" action="/addcourseaction/">
+{% csrf_token %}
+<b>Course ID (e.g. EXAM042)</b><br>
+<input type="text" name="course_id"><br>
+
 <b>Course name</b><br>
 <input type="text" name="course"><br>
 
