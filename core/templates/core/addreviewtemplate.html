@@ -56,7 +56,7 @@
     <div class="col-xs-12 col-sm-9">
     <h1> Add Review For {{ courseId }} </h1><br>
 
-    <form method="post">
+    <form method="post" action="/submitreview/{{ courseId }}">
 	{% csrf_token %}
 
         <b>Rating</b><br>
