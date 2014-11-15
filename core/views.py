@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 from core.models import Course
 from core.models import Professor
+from core.models import Review
 
 # Create your views here.
 
@@ -54,9 +55,12 @@ def addCourse(request):
 def viewCourse(request, course_id):
 	try:
 		theCourse = Course.objects.get(courseID = course_id)
+		courseReviews = theCourse.review_set.all()
 		context = RequestContext(request, {
 			'course' : theCourse,
 			'professor' : theCourse.professor_set.all()[0],
+			'reviews' : courseReviews,
+			'numReviews' : len(courseReviews),
 		})
 		return render(request, 'core/coursetemplate.html', context)
 	except:
@@ -67,3 +71,23 @@ def addReviewForm(request, course_id):
 		'courseId' : course_id,	
 	})
 	return render(request, 'core/addreviewtemplate.html', context)
+
+def submitReview(request, course_id):
+	rating = request.POST['rating']
+	text = request.POST['review']
+        
+	try: 
+		theCourse = Course.objects.get(courseID = course_id)
+		theReview = Review(text=text,rating=rating,author=request.user,course=theCourse)
+		theReview.save()
+		return HttpResponseRedirect('/viewcourse/'+course_id)
+	except:
+		return HttpResponse('Oops, that course does not exist')
+
+def subjectView(reqest, subject):
+	from core.models.Course import SUBJECTS 
+	if subject in SUBJECTS:
+		return HttpResponseRedirect('/viewsubject/'+subject)
+        else:
+		return HttpResponseRedirect('/')
+

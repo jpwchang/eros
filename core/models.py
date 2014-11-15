@@ -6,6 +6,21 @@ class Course(models.Model):
     courseID = models.CharField(max_length=8)
     name = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
+    SUBJECTS = (
+    ("ANTH", "Anthropology"),
+    ("ART ", "Art"),
+    ("BIOL", "Biology"),
+    ("CHEM"," Chemistry"),
+    ("LING", "Linguistic Cognitive Science"),
+    ("CSCI", "Computer Science"),
+    ("ENGR", "Engineering"),
+    ("EA  ", "Environmental Analysis"),
+    ("HIST", "History"),
+    ("MATH", "Math"),
+    ("PHIL", "Philosophy"),
+    ("PHYS", "Physics"),
+    ("PSYC", "Psychology"),
+    ("RLST", "Religious Studies"))
 
     def avg_review(self):
        total = 0
@@ -33,6 +48,10 @@ class Review(models.Model):
     (4.5, "4.5"),
     (5.0, "5"))
     rating = models.FloatField(choices=RATING_CHOICES)
+
+    def assignCourse(self, course):
+        self.course = course
+        self.save()
 
 
 

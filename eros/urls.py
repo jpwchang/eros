@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^addcourse/$', include('core.urls')),
     url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': 'core/login.html'}),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
     url(r'^', include('core.urls')),
 )
