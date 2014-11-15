@@ -42,25 +42,17 @@ margin-top: 20px
 color: #777;
 }
 .courseInfo {
-border-bottom: 1px solid #eee;
+border-bottom: 4px solid #ddd;
 padding-bottom: 10px
 }
 .review {
-border-bottom: 1px solid #eee;
+border-bottom: 2px solid #ddd;
 padding-top: 10px;
 padding-bottom: 10px;
+background-color: #eee;
 }
 input[type="submit"] {
 font-family:sans-serif;
-}
-td {
-padding:10px;
-}
-th {
-padding:10px;
-}
-table {
-border-spacing:10px;
 }
 .homeTitle small {
 color: #000;
