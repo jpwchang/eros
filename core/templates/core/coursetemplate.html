@@ -40,7 +40,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <h5 id="helloUser">Hello, {{ user.username }}. &nbsp</h5>
                     <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
-			{% csrf_token %}
                         <input type="submit" class="btn btn-default navbar-btn" value="Logout"/>
                     </form>
                 </ul>
@@ -69,7 +68,7 @@
 
 		<h4 id="courseProfs"> {{ professor.first_name }} {{ professor.last_name }}</h4>
 
-		<form method="post" id="addReview" action="/addcoursereview/{{ course.courseID }}/" align="right">
+		<form method="post" id="addReview" action="/addcoursereview/{{ course.courseID }}/">
 			{% csrf_token %}
 			<input type="submit" class="btn btn-default" value="Add Review"/>
 		</form> <br><br>
@@ -78,11 +77,11 @@
 	<div class="review">
 
 		{% for review in reviews %}
-			<h3 class="reviewRating"> {{review.rating}} </h3> <h4 class="of5"> /5 </h4> <h4 id="reviewAuthor" align="right"> {{review.author}} </h4>
+			<h3 class="reviewRating"> {{review.rating}} </h3> <h4 class="of5"> /5 </h4> <h4 id="reviewAuthor"> {{review.author}} </h4>
 
 			<p class="reviewText"> {{review.text}} </p>
 
-			<p align="right"> {{review.date}} </p>
+			<p id="dateStamp"> {{review.date}} </p>
 		{% endfor %}
 	
 	</div>
