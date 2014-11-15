@@ -28,12 +28,20 @@
         	<form  method="post" action=
             "" class="navbar-form navbar-left" role="search">
                 <div class="form-group">
+<<<<<<< HEAD
                     <input type="text" class="form-control" placeholder="Search..." name="entry">
+=======
+                    <input type="text" class="form-control" placeholder="Search...">
+>>>>>>> 0b23847b65bbed939ea710b0b461246ea02374f7
                 </div>
                 <input type="submit" class="btn btn-default glyphicon glyphicon-search" value="Go!"/>
             </form>
         	
+<<<<<<< HEAD
             {% if request.user.is_authenticated %}
+=======
+            {% if request.user.is_authenticated() %}
+>>>>>>> 0b23847b65bbed939ea710b0b461246ea02374f7
                 <ul class="nav navbar-nav navbar-right">
                     <h5 id="helloUser">Hello, {{ user.first_name }}. &nbsp</h5>
                     <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
@@ -58,6 +66,7 @@
                 <!--{% for subject in subject_list %}
                     <a href="{{ subject.get_absolute_url }}">
                         {{ subject }}
+<<<<<<< HEAD
                     {% endfor %}
                     </a>-->
                 <a href="#" class="list-group-item">Anthropology</a>
@@ -75,6 +84,19 @@
                 <a href="#" class="list-group-item">Psychology</a>
                 <a href="#" class="list-group-item">Religious Stuides</a>
          </div>
+=======
+                    </a>-->
+                <a href="#" class="list-group-item">
+                    Cras justo odio
+                </a>
+                <a href="#" class="list-group-item">
+                    Dapibus ac facilisis in
+                </a>
+                <a href="#" class="list-group-item">Morbi leo risus</a>
+                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            </div>
+>>>>>>> 0b23847b65bbed939ea710b0b461246ea02374f7
         </div>
         <div class="col-xs-12 col-sm-9">
             <h2 id="topCourses">Top Rated Courses</h2>
