@@ -11,10 +11,14 @@ from core.models import Review
 # Create your views here.
 
 def index(request):
-        topCourses = course.objects.order_by('rating').reverse()[:5]
+        allCourses = Course.objects.all()
+	sortedCourses = sorted(allCourses,key=lambda x: x.avg_review())
+	sortedCourses.reverse()
+	topCourses = [(x, x.avg_review()) for x in sortedCourses[:5]]
+
 	template = loader.get_template('core/index.html')
 	context = RequestContext(request, {
-		'topCourses':topCourses,
+		'topCourses':topCourses,	
 	})
 	return HttpResponse(template.render(context))
 
@@ -93,10 +97,23 @@ def submitReview(request, course_id):
 	except:
 		return HttpResponse('Oops, that course does not exist')
 
-def subjectView(reqest, subject):
+def subjectCheck(request, subject):
 	 
-	if subject in Course.SUBJECTS:
+	if subject in [x[0] for x in Course.SUBJECTS]:
 		return HttpResponseRedirect('/viewsubject/'+subject)
         else:
 		return HttpResponseRedirect('/')
 
+def viewSubject(request, subject):
+	fullName = Course.SUBJECTS[[x[0] for x in Course.SUBJECTS].index(subject)][1]
+
+        subjectCourses = Course.objects.filter(courseID__startswith=subject)
+	courseData = [(c, c.avg_review()) for c in subjectCourses]
+
+	con = RequestContext(request, 
+		{'subject': fullName,
+	 	 'courses': courseData,
+		}
+		)
+	
+	return render(request, 'core/subjectlisttemplate.html', con)

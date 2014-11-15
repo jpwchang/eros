@@ -75,9 +75,9 @@
         </div>
         <div class="col-xs-12 col-sm-9">
             <h2 id="topCourses">Top Rated Courses</h2>
-            {% for course in topCourses %}
+            {% for course, rating in topCourses %}
                 <div class="topReview">
-                <a href="/viewcourse/{{course.courseID}}/"><h4 id="homeTitle">{{course.name}} &nbsp</h4></a><h4 class="rating">{{course.rating}}</h4><h5 class="of5">/5</h5><p class="homeSubj">{{course.subject}}</p>
+                <a href="/viewcourse/{{course.courseID}}/"><h4 id="homeTitle">{{course.name}} &nbsp</h4></a><h4 class="rating">{{rating}}</h4><h5 class="of5">/5</h5><p class="homeSubj">{{course.subject}}</p>
                 </div>
             {% endfor %}
         </div>
