@@ -83,6 +83,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 STATIC_ROOT = '/var/www/eros/static'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ( "/home/eros/eros/bootstrap",)
 
 # Auto-redirect to index page on login
 LOGIN_REDIRECT_URL = '/'

@@ -55,7 +55,9 @@ def addCourse(request):
 def viewCourse(request, course_id):
 	try:
 		theCourse = Course.objects.get(courseID = course_id)
-		courseReviews = theCourse.review_set.all()
+		courseReviews = theCourse.review_set.order_by('date')
+		courseReviews = courseReviews.reverse()
+		#courseReviews = theCourse.review_set.all()
 
 		# calculate average rating
 		averageRating = 0

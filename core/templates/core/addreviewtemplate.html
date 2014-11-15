@@ -38,6 +38,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <h5 id="helloUser">Hello, {{ user.username }}. &nbsp</h5>
                     <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
+			{% csrf_token %}
                         <input type="submit" class="btn btn-default navbar-btn" value="Logout"/>
                     </form>
                 </ul>
@@ -70,7 +71,7 @@
                 <option value="3.0">3</option>
                 <option value="3.5">3.5</option>
                 <option value="4.0">4</option>
-                <option value="4.5">5.5</option>
+                <option value="4.5">4.5</option>
                 <option value="5.0">5</option>
             </select>
         <br><br>
