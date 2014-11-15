@@ -47,7 +47,10 @@ background-color: #eee;
 }
 input[type="submit"] {
 font-family:sans-serif;
-color: #0066FF;
+background-color: #337ab7;
+}
+button[type="submit"] {
+background-color: #337ab7;
 }
 .homeTitle small {
 color: #000;
