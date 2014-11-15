@@ -36,7 +36,7 @@
         	
             {% if request.user.is_authenticated() %}
                 <ul class="nav navbar-nav navbar-right">
-                    <h5 id="helloUser">Hello, {{ user.first_name }}. &nbsp</h5>
+                    <h5 id="helloUser">Hello, {{ user.username }}. &nbsp</h5>
                     <form method="post" action="{% url 'django.contrib.auth.views.logout' %}">
                         <input type="submit" class="btn btn-default navbar-btn" value="Logout"/>
                     </form>
@@ -55,8 +55,6 @@
     <div class="col-xs-12 col-sm-1"></div>
 
     <div class="col-xs-12 col-sm-11">
-c = course.objects.filter(course__subject="{subject}")
-print(c)
 	<!--	{% for subject in subject_list %} -->
 		<h2>Courses in {{ subject }}</h2>
 		    <div class="topReview">

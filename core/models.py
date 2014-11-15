@@ -25,10 +25,10 @@ class Course(models.Model):
     def avg_review(self):
        total = 0
        numReviews = 0
-       for x in Review.objects.get(course__exact=self):
+       for x in self.review_set.all():
           total += x.rating
           numReviews += 1
-       return total/numReviews
+       return total/numReviews if numReviews > 0 else 0
 
 class Review(models.Model):
     author = models.ForeignKey(User)
