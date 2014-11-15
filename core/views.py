@@ -17,8 +17,10 @@ def index(request):
 	topCourses = [(x, x.avg_review()) for x in sortedCourses[:5]]
 
 	template = loader.get_template('core/index.html')
+        courseCodes = Course.SUBJECTS
 	context = RequestContext(request, {
-		'topCourses':topCourses,	
+		'topCourses':topCourses,
+		'courseCodes':courseCodes,	
 	})
 	return HttpResponse(template.render(context))
 

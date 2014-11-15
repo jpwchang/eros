@@ -57,27 +57,16 @@
             <a href="/addcourse"><button type="submit" class="btn btn-default btn-lg" id="addButton">Add Course</button></a>
             <h3>Course Subjects</h3>
             <div class="list-group">
-                <a href="#" class="list-group-item">Anthropology</a>
-                <a href="#" class="list-group-item">Art</a>
-                <a href="#" class="list-group-item">Biology</a>
-                <a href="#" class="list-group-item">Chemistry</a>
-                <a href="#" class="list-group-item">Linguistics/Cognitive Science</a>
-                <a href="#" class="list-group-item">Computer Science</a>
-                <a href="#" class="list-group-item">Engineering</a>
-                <a href="#" class="list-group-item">Environmental Analysis</a>
-                <a href="#" class="list-group-item">History</a>
-                <a href="#" class="list-group-item">Math</a>
-                <a href="#" class="list-group-item">Philosophy</a>
-                <a href="#" class="list-group-item">Physics</a>
-                <a href="#" class="list-group-item">Psychology</a>
-                <a href="#" class="list-group-item">Religious Stuides</a>
+		{% for code, longname in courseCodes %}
+                <a href="/subject/{{ code }}" class="list-group-item">{{ longname }}</a>
+		{% endfor %}
             </div>
         </div>
         <div class="col-xs-12 col-sm-9">
             <h2 id="topCourses">Top Rated Courses</h2>
-            {% for course in topCourses %}
+            {% for course, rating in topCourses %}
                 <div class="topReview">
-                <a href="/viewcourse/{{course.courseID}}/"><h4 id="homeTitle">{{course.name}} &nbsp</h4></a><h4 class="rating">{{course.rating}}</h4><h5 class="of5">/5</h5><p class="homeSubj">{{course.subject}}</p>
+                <a href="/viewcourse/{{course.courseID}}/"><h4 id="homeTitle">{{course.name}} &nbsp</h4></a><h4 class="rating">{{rating}}</h4><h5 class="of5">/5</h5><p class="homeSubj">{{course.subject}}</p>
                 </div>
             {% endfor %}
         </div>
