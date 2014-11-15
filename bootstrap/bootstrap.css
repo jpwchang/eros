@@ -44,7 +44,6 @@ border-bottom: 2px solid #ddd;
 padding-top: 10px;
 padding-bottom: 10px;
 background-color: #eee;
-margin: 1em;
 }
 input[type="submit"] {
 font-family:sans-serif;
@@ -66,7 +65,6 @@ margin-right: 1em;
 #dateStamp {
 float:right;
 margin-right: 1em;
-padding-bottom: 10px;
 }
 #addReview {
 float:right;
@@ -77,7 +75,6 @@ margin-left: 1em;
 }
 .reviewRating {
 margin-left: 1em;
-padding-top: 10px;
 }
 
 
