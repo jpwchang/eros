@@ -7,7 +7,6 @@ from core.models import Course
 
 # Create your views here.
 
-@login_required
 def index(request):
 	text = 'LEMME TAKE A SELFIE'
 	num = 10
@@ -16,4 +15,12 @@ def index(request):
 		'text' : text,
 	})
 	return HttpResponse(template.render(context))
-	
+
+def addCourseForm(request):
+	context = {}
+	return render(request, 'core/addcoursetemplate.html', context)
+
+def addCourse(request):
+	courseName = request.POST['course']
+	subject = request.POST['subject']
+	prof = (request.POST['firstname'], request.POST['lastname'])	
