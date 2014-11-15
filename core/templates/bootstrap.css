@@ -65,3 +65,6 @@ border-spacing:10px;
 .homeTitle small {
 color: #000;
 }
+#helloUser, #logoutButt {
+display: inline;
+}
