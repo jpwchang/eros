@@ -11,11 +11,10 @@ from core.models import Review
 # Create your views here.
 
 def index(request):
-	text = 'LEMME TAKE A SELFIE'
-	num = 10
+        topCourses = course.objects.order_by('rating').reverse()[:5]
 	template = loader.get_template('core/index.html')
 	context = RequestContext(request, {
-		'text' : text,
+		'topCourses':topCourses,
 	})
 	return HttpResponse(template.render(context))
 
