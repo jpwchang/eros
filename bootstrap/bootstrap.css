@@ -47,6 +47,7 @@ background-color: #eee;
 }
 input[type="submit"] {
 font-family:sans-serif;
+color: #0066FF;
 }
 .homeTitle small {
 color: #000;
@@ -67,6 +68,5 @@ float:right;
 #reviewAuthor {
 float:right;
 }
-
 
 
