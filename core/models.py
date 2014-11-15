@@ -32,7 +32,7 @@ class Course(models.Model):
 
 class Review(models.Model):
     author = models.ForeignKey(User)
-    date = models.DateField(auto_now=True)
+    date = models.DateTimeField(auto_now=True)
     text = models.TextField()
     course = models.ForeignKey(Course)
     RATING_CHOICES = (
