@@ -58,4 +58,24 @@ display: inline;
 margin-left: auto;
 margin-right: auto;
 }
+#reviewAuthor {
+float:right;
+margin-right: 1em;
+}
+#dateStamp {
+float:right;
+margin-right: 1em;
+}
+#addReview {
+float:right;
+margin-right: 1em;
+}
+.reviewText {
+margin-left: 1em;
+}
+.reviewRating {
+margin-left: 1em;
+}
+
+
 
