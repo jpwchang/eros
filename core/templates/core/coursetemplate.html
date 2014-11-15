@@ -70,18 +70,18 @@
 
 		<form method="post" id="addReview" action="/addcoursereview/{{ course.courseID }}/">
 			{% csrf_token %}
-			<input type="submit" class="btn btn-default" value="Add Review"/>
+			<input type="submit" class="btn btn-default" value="Add Review" align="right"/>
 		</form> <br><br>
 	</div>
 
 	<div class="review">
 
 		{% for review in reviews %}
-			<h3 class="reviewRating"> {{review.rating}} </h3> <h4 class="of5"> /5 </h4> <h4 id="reviewAuthor"> {{review.author}} </h4>
+			<h3 class="reviewRating"> {{review.rating}} </h3> <h4 class="of5"> /5 </h4> <h4 id="reviewAuthor" align="right"> {{review.author}} </h4>
 
 			<p class="reviewText"> {{review.text}} </p>
 
-			<p id="dateStamp"> {{review.date}} </p>
+			<p id="dateStamp" align="right"> {{review.date}} </p>
 		{% endfor %}
 	
 	</div>
