@@ -22,12 +22,6 @@ display: inline;
 #courseProfs {
 float: left;
 }
-#addReview {
-float: right;
-}
-#reviewAuthor {
-float: right;
-}
 .reviewRating, .of5, #NReviews{
 display: inline;
 }
