@@ -1,5 +1,11 @@
-{% for file in testfiles %}
-<li>
-{{file}}
-</li>
-{% endfor %}
+<html>
+	<head></head>
+	<body>
+		testing...
+		{% if text %}
+			<p>{{ text }}</p>
+		{% else %}
+			<p>Did not receive context data!! :'(</p>
+		{% endif %}
+	</body>
+</html>

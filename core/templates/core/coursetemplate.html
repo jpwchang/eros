@@ -1,0 +1,15 @@
+<html>
+
+<title> {{course.name}} </title>
+
+<body>
+<--! pretty stuff with course name -->
+
+{% for review in course.review %}
+<h3> {{review.rating}} &nbsp {{review.author}} </h3>
+
+<p> {{review.text}} </p>
+
+<p align="right"> {{review.date}} </p>
+{% endfor %}
+</body>

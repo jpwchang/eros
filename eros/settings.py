@@ -58,8 +58,10 @@ WSGI_APPLICATION = 'eros.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+	'OPTIONS': {
+		'read_default_file':'/home/eros/eros/eros/eros_sql.conf',
+	},
     }
 }
 
@@ -79,5 +81,5 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_ROOT = '/var/www/eros/static'
 STATIC_URL = '/static/'
